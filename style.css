@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+  
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+  
+html {
+    font-size: 10px;
+    font-family: 'Do Hyeon', sans-serif;
+}
+  
+.nav-container {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    font-size: 3rem;
+}
+
+.nav-search {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-search i {
+    font-size: 2rem;
+}
+
+.nav-search-title {
+    font-size: 1.6rem;
+}
+
+.category-title {
+    font-size: 5rem;
+    font-weight: 100;
+    margin-bottom: 3rem;
+}
+
+.category-container {
+    margin-bottom: 5rem;
+}
+
+.category-item {
+    width: 30%;
+    height: 5rem;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1.6rem;
+}
+
+.category-item:hover {
+    color: aquamarine;
+    cursor: pointer;
+}
+
+.inner {
+    padding: 0 1.5rem;
+}
+
+@media all and (min-width: 1024px) {
+    .inner {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+}
+
+/* 지도 CSS */
+
+body {
+    height: 100vh;
+}
+
+nav {
+    height: 102px;
+}
+
+main {
+    padding: 3rem 0;
+    height: calc(100% - 102px);
+    display: flex;
+    flex-direction: column;
+}
+
+#map {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}

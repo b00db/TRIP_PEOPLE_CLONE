@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>트리플: 여행자 클럽 마일리지 서비스</title>
+    <meta name="author" content="boo" />
+    <meta name="description" content="트리플 여행자 클럽 마일리지 서비스" />
+    <meta
+      name="keywords"
+      content="장소 리뷰 작성 / 포인트 부여 히스토리 관리 / 개인별 누적 포인트 관리"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/e1710f3b09.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="inner">
+        <div class="nav-container">
+            <h1 class="nav-title">TRIPLE</h1>
+            <button class="nav-search">
+                <span class="nav-search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <span class="nav-search-title">검색</span>
+            </button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+        <!-- 카테고리 -->
+        <section id="category">
+            <div class="inner">
+                <div class="category-container">
+                    <h1 class="category-title">여행자님, 어디로 떠나시나요?</h1>
+                    <div class="category-list">
+                        <button class="category-item">강원</button>
+                        <button class="category-item">서울</button>
+                        <button class="category-item">경북·대구</button>
+                        <button class="category-item">경기</button>
+                        <button class="category-item">부산</button>
+                        <button class="category-item">전남·광주</button>
+                        <button class="category-item">제주</button>
+                        <button class="category-item">충남·대전</button>
+                        <button class="category-item">경남</button>
+                        <button class="category-item">충북</button>
+                        <button class="category-item">전북</button>
+                        <button class="category-item">인천</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 지도 -->
+        <div id="map" class="inner"></div>   
+    </main>
+
+    <script
+        type="text/javascript" 
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=12071fdde9a79cf3d023cfcb1814d5d7"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
