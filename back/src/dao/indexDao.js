@@ -32,3 +32,27 @@ exports.selectPlaces = async function (connection, category) {
 
   return rows;
 };
+
+// 리뷰 조회
+exports.selectReviews = async function (connection, nickname) {
+  const selectAllReviewsQuery = `SELECT * FROM Reviews WHERE status = 'A';`;
+  const selectReviewsByNicknameQuery = `SELECT * FROM Reviews, Users WHERE Reviews.userId = Users.userId AND nickname = ? AND status = 'A';`;
+
+  const Params = [nickname];
+
+  let Query = nickname ? selectReviewsByNicknameQuery : selectAllReviewsQuery;
+
+  const rows = await connection.query(Query, Params);
+
+  return rows;
+};
+
+// 리뷰 생성
+exports.insertReviews = async function (connection, userId, placeId, createdAt, updatedAt, content) {
+  const Query = `insert into Reviews(userId, placeId, createdAt, updatedAt, content) values (?,?,?,?,?);`;
+  const Params = [userId, placeId, createdAt, updatedAt, content];
+
+  const rows = await connection.query(Query, Params);
+
+  return rows;
+};

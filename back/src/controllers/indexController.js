@@ -189,3 +189,64 @@ exports.readJwt = async function (req, res) {
     message: "유효한 토큰입니다.",
   });
 };
+
+// 리뷰 목록 조회
+exports.readReviews = async function(req, res) {
+  const { nickname } = req.params;
+
+  try {
+    const connection = await pool.getConnection(async (conn) => conn);
+    try {
+      const [rows] = await indexDao.selectReviews(connection, nickname); // 비구조 할당
+
+      return res.send({
+        result: rows,
+        isSuccess: true,
+        code: 200, // 요청 실패시 400번대 코드
+        message: "리뷰 목록 요청 성공",
+      });
+    } catch (err) {
+      logger.error(`readReviews Query error\n: ${JSON.stringify(err)}`);
+      return false;
+    } finally {
+      connection.release();
+    }
+  } catch (err) {
+    logger.error(`readReviews DB Connection error\n: ${JSON.stringify(err)}`);
+    return false;
+  }
+};
+
+// 리뷰 생성
+exports.createReviews = async function (req, res) {
+  const { userId, placeId, createdAt, updatedAt, content } = req.body;
+
+  try {
+    const connection = await pool.getConnection(async (conn) => conn);
+    try {
+      const [rows] = await indexDao.insertReviews(
+        connection,
+        userId, 
+        placeId,
+        createdAt,
+        updatedAt,
+        content
+      ); // 비구조 할당
+
+      return res.send({
+        result: rows,
+        isSuccess: true,
+        code: 200, // 요청 실패시 400번대 코드
+        message: "리뷰 생성 성공",
+      });
+    } catch (err) {
+      logger.error(`createReviews Query error\n: ${JSON.stringify(err)}`);
+      return false;
+    } finally {
+      connection.release();
+    }
+  } catch (err) {
+    logger.error(`createReviews DB Connection error\n: ${JSON.stringify(err)}`);
+    return false;
+  }
+};

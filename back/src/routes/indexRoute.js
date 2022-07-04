@@ -16,4 +16,12 @@ module.exports = function (app) {
 
     // 로그인 유지, 토큰 검증
     app.get("/jwt", jwtMiddleware, index.readJwt);
+
+    // 리뷰 목록 조회 (광화문)
+    app.get("/reviews/:nickname", index.readReviews);
+    // 리뷰 목록 조회 (오죽헌)
+    app.get("/reviews/:nickname", index.readReviews);
+
+    // 리뷰 생성
+    app.post("/events", index.createReviews);
 };
